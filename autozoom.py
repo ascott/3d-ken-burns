@@ -88,12 +88,16 @@ if __name__ == '__main__':
 		'objFrom': objFrom
 	})
 
+	print(objTo)
+
 	npyResult = process_kenburns({
 		'fltSteps': numpy.linspace(0.0, 1.0, 75).tolist(),
 		'objFrom': objFrom,
 		'objTo': objTo,
 		'boolInpaint': True
 	})
+
+	print(npyResult)
 
 	moviepy.editor.ImageSequenceClip(sequence=[ npyFrame[:, :, ::-1] for npyFrame in npyResult + list(reversed(npyResult))[1:] ], fps=25).write_videofile(arguments_strOut)
 # end
