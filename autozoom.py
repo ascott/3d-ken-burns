@@ -84,11 +84,9 @@ if __name__ == '__main__':
 
 	objTo = process_autozoom({
 		'fltShift': 100.0,
-		'fltZoom': 2,
+		'fltZoom': 10,
 		'objFrom': objFrom
 	})
-
-	print(objTo)
 
 	npyResult = process_kenburns({
 		'fltSteps': numpy.linspace(0.0, 1.0, 75).tolist(),
@@ -96,8 +94,6 @@ if __name__ == '__main__':
 		'objTo': objTo,
 		'boolInpaint': True
 	})
-
-	print(npyResult)
 
 	moviepy.editor.ImageSequenceClip(sequence=[ npyFrame[:, :, ::-1] for npyFrame in npyResult + list(reversed(npyResult))[1:] ], fps=25).write_videofile(arguments_strOut)
 # end
