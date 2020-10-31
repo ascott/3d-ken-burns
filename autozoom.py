@@ -93,12 +93,7 @@ if __name__ == '__main__':
 		'objFrom': objFrom,
 		'objTo': objTo,
 		'boolInpaint': True
-	});
+	})
 
-	# export frames
-	frames_out_dir = './results/frames/'
-	for npyFrame in npyResult:
-		print(npyFrame)
-
-	# moviepy.editor.ImageSequenceClip(sequence=[ npyFrame[:, :, ::-1] for npyFrame in npyResult + list(reversed(npyResult))[1:] ], fps=25).write_videofile(arguments_strOut)
+	moviepy.editor.ImageSequenceClip(sequence=[ npyFrame[:, :, ::-1] for npyFrame in npyResult + list(reversed(npyResult))[1:] ], fps=25).write_videofile(arguments_strOut)
 # end
